@@ -252,7 +252,7 @@ WHERE cd.continent IS NOT NULL;
 -----------------------------------------------------------------------------------------------------------
 -- EXPLORING DATA 
 
-/* 2. Identify the locations where the new_cases_smoothed_per_million 
+/*  Identify the locations where the new_cases_smoothed_per_million 
 exceeded 100 for at least five consecutive days.*/
 WITH ConsecutiveDays AS (
     SELECT 
