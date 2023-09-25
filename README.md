@@ -47,7 +47,32 @@ The analysis focuses on answering key questions related to COVID-19, such as:
 21. Calculate the average reproduction rate for each continent.
 22. Identify locations with total cases per million below the median value.
 23. Calculate the ratio of total cases per million to hospital beds per thousand.
-24. Explore additional data in the COVID Vaccination dataset.
+24. What is the Average positive rate for each continent in the dataset?
+25. Which location had the highest number of new tests conducted 
+on a single day, and what was the date and the number of tests?
+26. Calculate the 7-day rolling average of new vaccinations for each location and date.
+27. For each continent, find the average new_tests_per_thousand for the first 
+quarter (January to March) of 2021.
+28. Identify the top 5 locations with the highest total_tests_per_thousand 
+for the entire period in the dataset.
+29. Calculate the median value of population_density for all locations in Asia.
+30. Find the location with the highest gdp_per_capita and the location with the 
+lowest gdp_per_capita for the latest date available.
+31. Calculate the total number of new cases reported per continent for each date in the dataset.
+32. Find the top 5 locations with the highest total number of tests conducted 
+(summing new_tests) for each continent.
+33. Calculate the percentage of people vaccinated (people_fully_vaccinated) for each location and date.
+34. Calculate the average number of new cases per million people for each continent and date.
+35. Find the locations with the highest ratio of total cases to total tests conducted 
+(total_cases/total_tests) for each date.
+36. Calculate the 7-day rolling average of new cases (new_cases) for each location and date.
+37. Identify the dates and locations where the percentage of new cases (new_cases) 
+compared to the previous day is above 10%.
+38. Calculate the average human development index (HDI) for each continent and date, considering 
+data from both tables.
+39. Find the locations where the median age is below the overall median age, and 
+the percentage of people aged 65 or older is above the overall median for each date available.
+
 
 ## How to Run the Code
 
