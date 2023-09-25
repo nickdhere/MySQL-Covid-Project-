@@ -1,3 +1,87 @@
+CREATE SCHEMA covid_project;
+
+USE covid_project;
+
+CREATE TABLE coviddeaths
+(
+iso_code VARCHAR(250),
+continent VARCHAR(250), 
+location VARCHAR(250), 
+dates VARCHAR(250), 
+population FLOAT,
+total_cases FLOAT, 
+new_cases FLOAT, 
+new_cases_smoothed FLOAT, 
+total_deaths FLOAT,
+new_deaths FLOAT, 
+new_deaths_smoothed FLOAT,
+total_cases_per_million FLOAT,
+new_cases_per_million FLOAT, 
+new_cases_smoothed_per_million FLOAT,
+total_deaths_per_million FLOAT,
+new_deaths_per_million FLOAT,
+new_deaths_smoothed_per_million FLOAT, 
+reproduction_rate FLOAT,
+icu_patients FLOAT,
+icu_patients_per_million FLOAT,
+hosp_patients FLOAT,
+hosp_patients_per_million FLOAT,
+weekly_icu_admissions FLOAT,
+weekly_icu_admissions_per_million FLOAT,
+weekly_hosp_admissions FLOAT,
+weekly_hosp_admissions_per_million FLOAT
+);
+
+CREATE TABLE CovidVacc
+(
+iso_code VARCHAR(250),
+continent VARCHAR(250),
+location VARCHAR(250),
+dates VARCHAR(250),
+new_tests FLOAT,
+total_tests	FLOAT,
+total_tests_per_thousand FLOAT,
+new_tests_per_thousand FLOAT,
+new_tests_smoothed	FLOAT,
+new_tests_smoothed_per_thousand	FLOAT,
+positive_rate FLOAT,
+tests_per_case FLOAT,
+tests_units	VARCHAR(250),
+total_vaccinations FLOAT,
+people_vaccinated FLOAT,
+people_fully_vaccinated	FLOAT,
+new_vaccinations FLOAT,
+new_vaccinations_smoothed FLOAT,
+total_vaccinations_per_hundred FLOAT,
+people_vaccinated_per_hundred FLOAT,
+people_fully_vaccinated_per_hundred	FLOAT,
+new_vaccinations_smoothed_per_million FLOAT,
+stringency_index FLOAT,
+population_density FLOAT,
+median_age FLOAT,
+aged_65_older FLOAT,
+aged_70_older FLOAT,
+gdp_per_capita FLOAT,
+extreme_poverty	FLOAT,
+cardiovasc_death_rate FLOAT,
+diabetes_prevalence	FLOAT,
+female_smokers FLOAT,
+male_smokers FLOAT,
+handwashing_facilities FLOAT,
+hospital_beds_per_thousand FLOAT,
+life_expectancy	FLOAT,
+human_development_index FLOAT
+) ;
+-- Renaming the Tbale name for convenience
+ALTER TABLE covid RENAME coviddeaths;
+
+-- Changing the datatype of dates column from both tables
+UPDATE CovidVacc 
+SET dates = str_to_date(dates, "%d-%m-%Y")  ;
+
+UPDATE coviddeaths 
+SET dates = str_to_date(dates, "%d-%m-%Y")  ;
+
 -- going through the tables
 SELECT * FROM CovidVacc ORDER BY 3,4; -- CHECKING THE DATA ACROSS TABLE 1
 
@@ -252,7 +336,7 @@ WHERE cd.continent IS NOT NULL;
 -----------------------------------------------------------------------------------------------------------
 -- EXPLORING DATA 
 
-/*  Identify the locations where the new_cases_smoothed_per_million 
+/* 2. Identify the locations where the new_cases_smoothed_per_million 
 exceeded 100 for at least five consecutive days.*/
 WITH ConsecutiveDays AS (
     SELECT 
